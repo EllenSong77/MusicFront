@@ -1,0 +1,92 @@
+[
+    {
+      "id":"1",
+      "songName":"Leave Out All The Rest",
+      "songArtist":"Linkin Park",
+      "songAlbum":"Minutes To Midnight",
+      "songURL":"http://mr3.doubanio.com/235ee78c73956a13dd3a4c4e3b64c31d/0/fm/song/p2235147_128k.mp4",
+      "songCover":"https://img1.doubanio.com/view/site/large/public/90f2350714bf219.jpg",
+      "tags":["华语","OST","抒情","古风"],
+      "count":"1"
+    },
+  {
+    "id":"1",
+    "songName":"Someone In The Crowd",
+    "songArtist":"Emma Stone",
+    "songAlbum":"La La Land OST",
+    "songURL":"http://mr1.doubanio.com/5fe61d312b5160394acf29caaebbfa4c/0/fm/song/p2694033_128k.mp4",
+    "songCover":"https://img3.doubanio.com/lpic/s29315732.jpg",
+    "tags":["OST","欧美","阳光"],
+    "count":"1"
+  },
+  {
+    "id":"2",
+    "songName":"Someone Like You",
+    "songArtist":"Adele",
+    "songAlbum":"21",
+    "songURL":"http://mr3.doubanio.com/2e771b8c763d59d4b85c0146d8fbbf3c/0/fm/song/p2201794_128k.mp4",
+    "songCover":"https://img1.doubanio.com/lpic/s24973289.jpg",
+    "tags":["人声","欧美","流行"],
+    "count":"1"
+  },
+  {
+    "id":"3",
+    "songName":"Young And Beautifu",
+    "songArtist":"Lana Del Rey",
+    "songAlbum":"Young And Beautiful",
+    "songURL":"http://mr3.doubanio.com/1ba6fdf2039f1b2019181c9d42bf6ed9/0/fm/song/p1905745_128k.mp4",
+    "songCover":"https://img1.doubanio.com/lpic/s26321817.jpg",
+    "tags":["独立","欧美","空灵","乐队"],
+    "count":"1"
+  },
+  {
+    "id":"4",
+    "songName":"Love Me Like You Do",
+    "songArtist":"Ellie Goulding",
+    "songAlbum":"Fifty Shades Of Grey OST",
+    "songURL":"http://mr3.doubanio.com/70a937c548db22e4757bb5d99a45b8da/0/fm/song/p2196869_128k.mp3",
+    "songCover":"https://img1.doubanio.com/lpic/s27982739.jpg",
+    "tags":["OST","欧美","空灵","伤感"],
+    "count":"1"
+  },
+  {
+    "id":"5",
+    "songName":"Commander",
+    "songArtist":"David Guetta / Kelly Rowland",
+    "songAlbum":"It's All Leak!",
+    "songURL":"http://mr3.doubanio.com/c6c7ae855a6cde6ee5d482375f8a7df6/1/fm/song/p1525094_128k.mp4",
+    "songCover":"https://img3.doubanio.com/lpic/s4689562.jpg",
+    "tags":["派对","欧美","亢奋","电音"],
+    "count":"1"
+  },
+  {
+    "id":"6",
+    "songName":"Y.M.C.A.",
+    "songArtist":"The Minions",
+    "songAlbum":"Despicable Me 2 OST",
+    "songURL":"http://mr3.doubanio.com/6deae5ed17aa6e27f347b4de38ed7483/0/fm/song/p1420929_128k.mp4",
+    "songCover":"https://img1.doubanio.com/lpic/s3250729.jpg",
+    "tags":["OST","欧美","搞笑","翻唱"],
+    "count":"1"
+  },
+  {
+    "id":"7",
+    "songName":"几个你",
+    "songArtist":"薛之谦",
+    "songAlbum":"几个薛之谦",
+    "songURL":"http://mr3.doubanio.com/43dde534f99882896d433bb40582efb7/1/fm/song/p1821846_64k.mp3",
+    "songCover":"https://img3.doubanio.com/lpic/s11184722.jpg",
+    "tags":["情歌","华语","流行"],
+    "count":"1"
+  },
+  {
+    "id":"8",
+    "songName":"Uptown Girl (Glee Cast Version)",
+    "songArtist":"Glee Cast",
+    "songAlbum":"Glee: The Music - The Complete Season Four",
+    "songURL":"http://mr3.doubanio.com/2c6505af6c829f8b19f27e9e3d02ae0b/0/fm/song/p2182165_128k.mp3",
+    "songCover":"https://img1.doubanio.com/lpic/s6992589.jpg",
+    "tags":["励志","港台","流行"],
+    "count":"1"
+  }
+]

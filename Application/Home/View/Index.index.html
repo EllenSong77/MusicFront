@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>随心音乐FM</title>
+    <link rel="stylesheet" type="text/css" href="__CSS__/style.css" />
+    <link rel="stylesheet" type="text/css" href="__CSS__/font-awesome.css" />
+    <link rel="stylesheet" href="__CSS__/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="__PLUGIN__/FontAwesome4.1/css/font-awesome.min.css" />
+    <script type='text/javascript' src='__JS__/jquery-3.2.0.js'></script>
+    <script type='text/javascript' src='__JS__/jquery.particleground.js'></script>
+    <script type='text/javascript' src='__JS__/bootstrap.js'></script>
+    <script src="__JS__/jquery-ui.js"></script>
+    <script src="__JS__/tPlayer.js"></script>
+    <style>
+        body {
+            height: 100%;
+            background: #16a085;
+            overflow: hidden;
+        }
+
+        canvas {
+            z-index: -1;
+            position: absolute;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            //粒子背景特效
+            $('body').particleground({
+                dotColor: '#5cbdaa',
+                lineColor: '#5cbdaa'
+            });
+        });
+    </script>
+</head>
+<body>
+
+<div id="init_home_page" style="display: none;">
+    <a href="{:U('Login/Login/index')}">欢迎来到随心音乐FM<br/>
+        即刻开始您的音乐之旅</a>
+</div>
+
+
+<div id="player_main_page">
+
+    <div class="header_section">
+        <span id="music_player_title" >随心音乐FM</span>
+
+        <!--判断是否是已经登录用户-->
+        <!--是：进入音乐播放界面-->
+        <!--不是：进入登录界面-->
+        <php>if(!empty($_SESSION['music_']['fm_member']['v_user_name'])){</php>
+        <div class="user-center">
+            <i class="fa fa-user-o fa-2x user-center-img"  aria-hidden="true"></i>
+            <a href=""><php>echo $_SESSION['music_']['fm_member']['v_user_name']</php> </a>
+        </div>
+        <a href="{:U('Login/Login/logout')}" onclick="onLogOff()">退出登录</a>
+        <php>}else{</php>
+        <script>
+            $("#player_main_page").css("display","none");
+            $(".init_home_page").css("display","block");
+            $('#init_home_page').fadeTo(1500,1);
+        </script>
+        <i class="fa fa-user-o fa-2x user-center-img" aria-hidden="true"></i>
+        <a href="{:U('Login/Login/index')}">登录</a>
+        <a href="{:U('Login/Login/register')}">注册</a>
+        <php>}</php>
+
+
+        <div class="search-box" id="search-area">
+            <input type="text" class="search-input" name="wd" id="search-wd" placeholder="搜索歌手、歌名">
+            <ul>
+
+            </ul>
+        </div>
+    </div>
+
+    <div class="div_space"></div>
+
+    <div class="scroll_section">
+            <div class="myplayer">
+                <div id="t_wrapper">
+                    <div id="t_cover">
+                        <img src="/Public/Images/logo.png">
+                    </div>
+                    <div id="t_top">
+                        <div id="t_title_info">
+                            <span class="artist"></span>
+                            <span class="title"></span>
+                        </div>
+                    </div>
+                    <div id="t_middle">
+                        <div id="play"></div>
+                        <div id="pause" class="hidden">
+                        </div>
+                        <div class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" id="t_progress">
+                            <div id="trackInfo">
+                                <div id="error">
+                                </div>
+                                <div id="current">0:00</div>
+                                <div id="duration">0:00</div>
+                            </div>
+                            <div style="width: 0%;" class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min"></div>
+                            <span style="left: 0%;" class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0"></span>
+                        </div>
+                        <span id="prev"></span>
+                        <span id="next"></span>
+                    </div>
+                    <div id="t_bottom">
+                        <div id="extra_function">
+                            <i class="fa fa-heart fa-2x" id="heart_button" aria-hidden="true"></i>
+                            <!--<i class="fa fa-trash fa-2x" id="rubbish_button" aria-hidden="true"></i>-->
+                        </div>
+                        <div id="range">
+                            <div id="val"></div>
+                            <div id="vol"></div>
+                            <div id="rangeVal"></div>
+                        </div>
+                        <div id="t_pls_show" class="noselectpls"></div>
+                    </div>
+                </div>
+                <div id="playlist">
+                    <ul>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="recommendation_list">
+                <div class="tab song_list_title">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active">
+                            <a href="#Section1" aria-controls="home" role="tab" data-toggle="tab">
+                                <i class="fa fa-thumbs-o-up" id="normal_recommendation" aria-hidden="true"></i>推荐列表
+                            </a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#Section2" aria-controls="home" role="tab" data-toggle="tab">
+                                <span><i class="fa fa-smile-o" id="relative_recommendation" aria-hidden="true"></i>猜你喜欢</span>
+                            </a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#Section3" aria-controls="home" role="tab" data-toggle="tab">
+                                <span><i class="fa fa-heart" id="red_heart_list" aria-hidden="true"></i>红心列表</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div role="tabpanel" class="tab-pane fade in active" id="Section1">
+                    <ul></ul>
+                </div>
+                <div role="tabpanel" class="tab-pane fade" id="Section2">
+                    <ul></ul>
+                </div>
+                <div role="tabpanel" class="tab-pane fade" id="Section3">
+                    <ul></ul>
+                </div>
+
+            </div>
+        </div>
+
+
+</div>
+</body>
+</html>

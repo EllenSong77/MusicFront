@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>随心音乐FM</title>
+    <script type='text/javascript' src='__JS__/jquery-3.2.0.js'></script>
+    <script type='text/javascript' src='__JS__/jquery.particleground.js'></script>
+    <script src="__PLUGIN__/layer/layer.js"></script>
+    <script src="__JS__/common.js"></script>
+    <link rel="stylesheet" href="__CSS__/style_register.css"/>
+    <link rel="stylesheet" href="__CSS__/bootstrap.css"/>
+    <script type='text/javascript' src='__JS__/bootstrap.js'></script>
+    <style>
+        body {
+            height: 100%;
+            background: #16a085;
+            overflow: hidden;
+        }
+
+        canvas {
+            z-index: -1;
+            position: absolute;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            //粒子背景特效z
+            $('body').particleground({
+                dotColor: '#5cbdaa',
+                lineColor: '#5cbdaa'
+            });
+        });
+    </script>
+</head>
+
+
+<body>
+
+<div class="header_section">
+    <span id="music_player_title">随心音乐FM</span>
+</div>
+<div class="div_space"></div>
+<dl class="admin_login">
+    <form>
+        <dd>用&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;户：<input type="text" name="username" id="username"/></dd>
+        <dd>昵&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;称：<input type="text" name="nickname" id="nickname"/></dd>
+        <dd>个人简介：<input type="text" name="description" id="description"/></dd>
+        <dd>密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：<input type="password" name="password" id="password"/></dd>
+        <dd>确认密码：<input type="password" name="repassword" id="repassword"/></dd>
+        <dd>邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱：<input type="text" name="email" id="email"/></dd>
+        <dd>手&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;机：<input type="text" name="phone" id="phone"/></dd>
+        <dd>年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;龄：<input type="text" name="age" id="age"/></dd>
+        <dd>生&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;日：<input type="text" name="birth" id="birth"/></dd>
+        <dd>性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：<input type="radio" name="gender" value="2" checked/>女
+            <input type="radio" style="margin-left:30px;" name="gender" value="3"/>男
+        </dd>
+        <dd>
+            <input type="submit" value="立即注册" class="submit_btn">
+        </dd>
+    </form>
+</dl>
+<script>
+
+    //登录验证：
+    $('.submit_btn').click(function (e) {
+
+        var username = $("#username").val();
+        var password = $("#nickname").val();
+        var description = $("#description").val();
+        var password = $("#password").val();
+        var repassword = $("#repassword").val();
+        var email = $("#email").val();
+        var phone = $("#phone").val();
+        var age = $("#age").val();
+        var birth = $("#birth").val();
+        var sex = $("input[type='gender']:checked").val();
+
+        if (username == '') {
+            showInfo("用户名不能为空",2);
+            return false;
+        }
+        if (password == '') {
+            showInfo("密码不能为空",2);
+            return false;
+        }
+
+        if (password != repassword) {
+            showInfo("密码确认密码不一致",2);
+            return false;
+        }
+
+        if (username != '' && password != '') {
+
+            //ajax提交表单：
+            ajaxSubmit("{:U('doregister')}","POST",function(data){
+
+                if (data.status == 1) {
+                    showInfo(data.info,1);
+                }else {
+                    showInfo(data.info,2);
+                }
+
+
+                if (data.url && data.url != '') {
+                    setTimeout(function () {
+                        top.window.location.href = data.url;
+                    }, 2000);
+                }
+
+
+            });
+
+
+        }
+
+        e.preventDefault();
+    });
+</script>
+</body>
+</html>
